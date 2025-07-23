@@ -1,9 +1,9 @@
 package application;
 
-import java.util.Date;
 import java.util.Locale;
 
-import model.entities.Department;
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
 import model.entities.Seller;
 
 public class Program {
@@ -12,9 +12,9 @@ public class Program {
 		
 		Locale.setDefault(Locale.US);
 		
-		Department obj = new Department(1, "Books");
+		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
-		Seller seller = new Seller(1, "Mark Revv", "mark@gmail.com", new Date(), 4000.0, obj);
+		Seller seller = sellerDao.findById(3);
 		
 		System.out.println(seller);
 		
